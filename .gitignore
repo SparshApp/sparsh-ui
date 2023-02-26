@@ -1,0 +1,18 @@
+.env
+
+# Ignore node_modules
+node_modules/
+
+# Ignore built files
+dist/
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.iml
+
+# Ignore macOS-specific files
+.DS_Store
+
+# Ignore npm debugging logs
+npm-debug.log*
