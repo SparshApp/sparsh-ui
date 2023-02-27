@@ -1,92 +1,67 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-module.exports = (env, argv) => {
-    const isProduction = argv.mode === 'production';
+const isDevelopment = process.env.NODE_ENV === 'development';
 
-    return {
-        entry: './src/index.js',
-        output: {
-            filename: 'bundle.[hash].js',
-            path: path.resolve(__dirname, 'dist'),
-        },
-        module: {
-            rules: [
-                {
-                    test: /\.js$/,
-                    exclude: /node_modules/,
-                    use: {
-                        loader: 'babel-loader',
-                    },
-                },
-                {
-                    test: /\.scss$/,
-                    use: [
-                        isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-                        'css-loader',
-                        'sass-loader',
-                    ],
-                },
-                {
-                    test: /\.(png|svg|jpg|gif)$/,
-                    use: [
-                        {
-                            loader: 'file-loader',
-                            options: {
-                                name: '[name].[hash].[ext]',
-                                outputPath: 'images/',
-                            },
-                        },
-                    ],
-                },
-                {
-                    test: /\.(woff|woff2|eot|ttf|otf)$/,
-                    use: [
-                        {
-                            loader: 'file-loader',
-                            options: {
-                                name: '[name].[hash].[ext]',
-                                outputPath: 'fonts/',
-                            },
-                        },
-                    ],
-                },
-            ],
-        },
-        optimization: {
-            minimizer: [
-                new OptimizeCSSAssetsPlugin(),
-                new TerserPlugin({
-                    cache: true,
-                    parallel: true,
-                    sourceMap: !isProduction,
-                }),
-            ],
-        },
-        plugins: [
-            new webpack.ProgressPlugin(),
-            new CleanWebpackPlugin(),
-            new HtmlWebpackPlugin({
-                template: 'src/index.html',
-                filename: 'index.html',
-                inject: 'body',
-            }),
-            new MiniCssExtractPlugin({
-                filename: 'bundle.[hash].css',
-                chunkFilename: '[id].[hash].css',
-            }),
+module.exports = {
+    entry: './src/index.tsx',
+    mode: isDevelopment ? 'development' : 'production',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+    },
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js'],
+    },
+    devtool: isDevelopment ? 'inline-source-map' : false,
+    devServer: {
+        contentBase: './dist',
+        hot: true,
+    },
+    optimization: {
+        minimize: !isDevelopment,
+        minimizer: [new TerserPlugin()],
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+        }),
+        new HtmlWebpackPlugin({
+            template: 'public/index.html',
+            favicon: 'public/icons/favicon.ico',
+            filename: 'index.html',
+            inject: 'body',
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
+            },
+        }),
+        new MiniCssExtractPlugin(),
+        new CleanWebpackPlugin(),
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.css$/i,
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
+            },
         ],
-        devtool: isProduction ? false : 'source-map',
-        devServer: {
-            contentBase: path.join(__dirname, 'dist'),
-            compress: true,
-            port: 3000,
-            hot: true,
-        },
-    };
+    },
 };
