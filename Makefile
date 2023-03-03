@@ -8,7 +8,7 @@ DOCKER_COMPOSE_RESTART = $(DOCKER_COMPOSE) restart
 DOCKER_COMPOSE_PS = $(DOCKER_COMPOSE) ps
 
 build:
-    docker build -t my-react-app:latest .
+    docker build -t sparsh-ui:latest .
 
 run:
     $(DOCKER_COMPOSE_UP)
