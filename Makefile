@@ -1,3 +1,5 @@
+APP_NAME=sparsh-ui
+
 DOCKER_COMPOSE = docker-compose
 DOCKER_COMPOSE_UP = $(DOCKER_COMPOSE) up -d
 DOCKER_COMPOSE_DOWN = $(DOCKER_COMPOSE) down
@@ -26,10 +28,10 @@ ps:
     $(DOCKER_COMPOSE_PS)
 
 lint:
-    $(DOCKER_COMPOSE_RUN) web yarn lint
+    $(DOCKER_COMPOSE_RUN) $(APP_NAME) yarn lint
 
 test:
-    $(DOCKER_COMPOSE_RUN) web yarn test
+    $(DOCKER_COMPOSE_RUN) $(APP_NAME) test
 
 bash:
-    $(DOCKER_COMPOSE_EXEC) web bash
+    $(DOCKER_COMPOSE_EXEC) $(APP_NAME) bash

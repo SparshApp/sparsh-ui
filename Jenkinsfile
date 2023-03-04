@@ -4,14 +4,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'npm install'
-        sh 'npm run build'
-        sh 'docker build -t my-app .'
+        sh 'make build'
       }
     }
     stage('Test') {
       steps {
-        sh 'npm run test'
+        sh 'make test'
       }
     }
     stage('Deploy') {

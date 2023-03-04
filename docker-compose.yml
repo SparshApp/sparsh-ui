@@ -1,17 +1,22 @@
 version: "3.9"
 
 services:
-  ui:
-    container_name: ui
+  sparsh-ui:
+    container_name: sparsh-ui
     build:
-      context: src
+      context: ui
+    environment:
+      - APP_ENV=prod
+      - COMPOSE_PROJECT_NAME=sparsh
     ports:
       - "3000:3000"
-    volumes:
-      - .:/app
-      - /app/node_modules
+    # volumes:
+    #   - .:/app
+    #   - /app/node_modules
     networks:
-      dev:
+      sparsh-network:
+        aliases:
+          - sparsh-ui
 
   infra:
     container_name: infra
@@ -19,9 +24,13 @@ services:
       context: infra
     ports:
       - "3001:3001"
-    volumes:
-      - .:/app
-      - /app/node_modules
+    # volumes:
+    #   - .:/app
+    #   - /app/node_modules
+    networks:
+      sparsh-network:
+        aliases:
+          - ui-infra
 
 networks:
-  dev:
+  sparsh-network:
