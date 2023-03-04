@@ -1,20 +1,12 @@
 import React from "react";
+import Button from "./components/Button";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          ohhhhhhh
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Glad to have you here at SparshApp</h1>
+        <Button />
       </header>
     </div>
   );

@@ -7,8 +7,6 @@ services:
       context: src
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=production
     volumes:
       - .:/app
       - /app/node_modules
@@ -21,8 +19,6 @@ services:
       context: infra
     ports:
       - "3001:3001"
-    environment:
-      - NODE_ENV=production
     volumes:
       - .:/app
       - /app/node_modules

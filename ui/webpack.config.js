@@ -4,7 +4,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-const isDevelopment = process.env.NODE_ENV === "development";
+const isDevelopment = process.env.APP_ENV === "dev";
 
 module.exports = {
   entry: {
@@ -32,21 +32,7 @@ module.exports = {
     compress: true,
     port: 4000,
     hot: true,
-    stats: {
-      assets: true,
-      children: false,
-      chunks: false,
-      hash: false,
-      modules: false,
-      publicPath: false,
-      timings: true,
-      version: false,
-      warnings: true,
-      color: {
-        green: '\u001b[32m'
-      }
   },
-},
   optimization: {
     minimize: !isDevelopment,
     minimizer: [new TerserPlugin()],
@@ -54,7 +40,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       favicon: "public/icons/favicon.ico",
-      filename: "public/index.html",
+      filename: "public.index.html",
       inject: "body",
       minify: {
         removeComments: true,

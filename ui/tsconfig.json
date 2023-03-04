@@ -14,7 +14,7 @@
     },
     "outDir": "dist",
     "declaration": true,
-    "declarationDir": "types",
+    "declarationDir": "./dist/types",
     "sourceMap": true,
     "strict": true,
     "noImplicitAny": true,

@@ -1,0 +1,40 @@
+# Global config
+global: &global
+  app_name: sparsh_ui
+  debug: true
+  testing: false
+
+# Dev config
+dev:
+  <<: *global
+  env: dev
+  api_key: my_api_key_dev
+  aws:
+    access_key: abcdefg123456
+    secret_key: dev_secret_key
+    secret_name: dev_secrets
+    region: us-west-2
+
+# QA config
+qa:
+  <<: *global
+  env: qa
+  api_key: my_api_key_qa
+  aws:
+    access_key: abcdefg123456
+    secret_key: qa_secret_key
+    secret_name: qa_secrets
+    region: us-west-2
+
+# Prod config
+prod:
+  app_name: sparsh_api
+  env: prod
+  debug: false
+  testing: false
+  api_key: my_api_key_prod
+  aws:
+    access_key: abcdefg123456
+    secret_key: prod_secret_key
+    secret_name: prod_secrets
+    region: us-west-2

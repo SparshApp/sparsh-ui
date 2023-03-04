@@ -5,7 +5,7 @@ import {
 } from "@mui/material";
 
 interface ButtonProps extends MuiButtonProps {
-  label: string;
+  label?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({ label, ...props }) => {

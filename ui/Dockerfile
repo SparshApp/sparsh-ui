@@ -2,10 +2,10 @@
 FROM node
 
 # Set the working directory to /app
-WORKDIR /app
+WORKDIR /ui
 
 # Copy the application code to the working directory
-COPY . /app
+COPY . /ui
 
 # Install dependencies
 RUN npm install
