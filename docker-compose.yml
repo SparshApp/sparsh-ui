@@ -6,8 +6,8 @@ services:
     build:
       context: ui
     environment:
-      - APP_ENV=prod
-      - COMPOSE_PROJECT_NAME=sparsh
+      NODE_ENV: prod
+      COMPOSE_PROJECT_NAME: sparsh
     ports:
       - "3000:3000"
     # volumes:

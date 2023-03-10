@@ -3,7 +3,7 @@
 # dependencies
 *node_modules
 *package-lock.json
-*secrets.json
+# *secrets.json
 *.pnp
 *.pnp.js
 

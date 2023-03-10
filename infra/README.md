@@ -1,6 +1,6 @@
 # Infrastructure files
 
-`export APP_ENV=dev|qa|prod`
+`export NODE_ENV=dev|qa|prod`
 
 `docker build . -t ui-infra`
 

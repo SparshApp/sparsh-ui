@@ -1,5 +1,11 @@
 # sparsh-ui
 
+TODOs:
+
+- Explore if secrets.json and secrets.json.template can be removed for the UI, if AWS credentials are being stored in the environment. Update ui to use AWS Secrets Manager or Docker secrets to get all secrets, and then update secrets.json and .env files to either be removed or ignored using .dockerignore
+
+- Get the AWS Api Gateway credentials from somewhere? .env file? /api-gateway-creds endpoint? Look into where the API Gateway secrets should be retrieved from and stored
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
