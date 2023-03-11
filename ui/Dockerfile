@@ -8,12 +8,13 @@ WORKDIR /ui
 COPY . /ui
 
 # Install dependencies
+# RUN npm install --production
 RUN npm install
 
 # Build the React app
-RUN npm run magic
+RUN npm run build
 
 # Make port 3000 available to the world outside this container
 EXPOSE 3000
 
-CMD ["serve", "-s", "build"]
+CMD ["npm", "start"]
