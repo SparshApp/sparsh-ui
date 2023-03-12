@@ -2,10 +2,10 @@
 FROM node
 
 # Set the working directory to /app
-WORKDIR /ui
+WORKDIR /app
 
 # Copy the application code to the working directory
-COPY . /ui
+COPY . /app
 
 # Install dependencies
 # RUN npm install --production
@@ -17,4 +17,4 @@ RUN npm run build
 # Make port 3000 available to the world outside this container
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]

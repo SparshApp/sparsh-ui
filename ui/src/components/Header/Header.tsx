@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getUsers } from '../../services/api';
+import { getUsers } from '../../api/server/users';
 
 const Header = () => {
   const [data, setData] = useState(null);

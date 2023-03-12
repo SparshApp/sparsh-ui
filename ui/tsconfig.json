@@ -2,20 +2,22 @@
   "compilerOptions": {
     "target": "es6",
     "module": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": false,
-    "jsx": "react",
+    "jsx": "preserve",
     "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
-    "outDir": "dist",
-    "declaration": true,
-    "declarationDir": "./dist/types",
-    "sourceMap": true,
     "strict": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -23,8 +25,18 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "suppressImplicitAnyIndexErrors": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "incremental": true,
+    "isolatedModules": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+, "src/pages/index.test.tsx.ignore", "src/pages/App.test.tsx.ignore"  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

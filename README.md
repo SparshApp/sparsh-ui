@@ -6,6 +6,34 @@ TODOs:
 
 - Get the AWS Api Gateway credentials from somewhere? .env file? /api-gateway-creds endpoint? Look into where the API Gateway secrets should be retrieved from and stored
 
+- Configure Nginx?
+
+- Configure AWS infrastructure using terraform infrastructure as code, and deploy using AWS credentials stored and retrieved in Jenkins pipelines
+
+- Create .github folder with Issue templates and PR templates
+
+- Configure .eslintignore and .prettierignore files, and configure .eslintrc.json, .prettierrc.json, and .vscode files to format on save
+
+## TECH STACK
+
+- React
+- Node.js
+- React Redux: state management
+- React Native?
+- Bootstrap? Tailwind? NativeBase?
+- Material UI? Ant Design? Chakra UI?
+- Lottie
+- Nginx
+- Typescript
+- AWS: Elastic Beanstalk, ECS, ALB, S3, Cloudfront CDN, API Gateway, IAM, Secrets Manager, DynamoDB
+- Docker
+- Jenkins
+- Terraform
+- Jest: unit testing
+- Cypress or Detox?: end-to-end testing
+- Storybook: design testing
+- React native debugger
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

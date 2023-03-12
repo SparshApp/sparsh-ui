@@ -1,37 +1,22 @@
-APP_NAME=sparsh-ui
+APP_NAME := sparsh-ui
 
-DOCKER_COMPOSE = docker-compose
-DOCKER_COMPOSE_UP = $(DOCKER_COMPOSE) up -d
-DOCKER_COMPOSE_DOWN = $(DOCKER_COMPOSE) down
-DOCKER_COMPOSE_BUILD = $(DOCKER_COMPOSE) build
-DOCKER_COMPOSE_RUN = $(DOCKER_COMPOSE) run --rm
-DOCKER_COMPOSE_EXEC = $(DOCKER_COMPOSE) exec
-DOCKER_COMPOSE_RESTART = $(DOCKER_COMPOSE) restart
-DOCKER_COMPOSE_PS = $(DOCKER_COMPOSE) ps
+run-local:
+    docker build . -t sparsh-ui
+    docker run --rm -p 3000:3000 sparsh-ui
 
-build:
-    docker build -t sparsh-ui:latest .
+run-prod:
+    docker-compose down
+    docker-compose build
+    docker-compose up
 
-run:
-    $(DOCKER_COMPOSE_UP)
-
-stop:
-    $(DOCKER_COMPOSE_DOWN)
-
-rebuild:
-    $(DOCKER_COMPOSE_BUILD)
-
-restart:
-    $(DOCKER_COMPOSE_RESTART)
+down:
+    docker-compose down
 
 ps:
-    $(DOCKER_COMPOSE_PS)
+    docker-compose ps -a
 
 lint:
-    $(DOCKER_COMPOSE_RUN) $(APP_NAME) yarn lint
+    npm run lint
 
 test:
-    $(DOCKER_COMPOSE_RUN) $(APP_NAME) test
-
-bash:
-    $(DOCKER_COMPOSE_EXEC) $(APP_NAME) bash
+    npm run test

@@ -5,9 +5,9 @@ services:
     container_name: sparsh-ui
     build:
       context: ./ui
-    command: npx serve -s ./build
+    command: npm start
     environment:
-      NODE_ENV: prod
+      NODE_ENV: production
     ports:
       - "3000:3000"
     # volumes:
@@ -22,9 +22,6 @@ services:
     container_name: infra
     build:
       context: infra
-    # volumes:
-    #   - .:/app
-    #   - /app/node_modules
     networks:
       sparsh-network:
         aliases:
