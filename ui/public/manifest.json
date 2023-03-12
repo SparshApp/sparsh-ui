@@ -1,7 +1,7 @@
 {
-  "name": "My App",
-  "short_name": "My App",
-  "description": "A cool app",
+  "name": "Sparsh App",
+  "short_name": "Sparsh App",
+  "description": "Sparsh App is a boilerplate for building next js apps with typescript",
   "icons": [
     {
       "src": "icons/icon-72x72.png",

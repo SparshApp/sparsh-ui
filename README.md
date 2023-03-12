@@ -21,8 +21,7 @@ TODOs:
 - React Redux: state management
 - React Native?
 - Bootstrap? Tailwind? NativeBase?
-- Material UI? Ant Design? Chakra UI?
-- Lottie
+- Material UI? Ant Design? Chakra UI? Lottie?
 - Nginx
 - Typescript
 - AWS: Elastic Beanstalk, ECS, ALB, S3, Cloudfront CDN, API Gateway, IAM, Secrets Manager, DynamoDB
@@ -31,6 +30,7 @@ TODOs:
 - Terraform
 - Jest: unit testing
 - Cypress or Detox?: end-to-end testing
+- PM2: process manager / monitoring for Node.js
 - Storybook: design testing
 - React native debugger
 
