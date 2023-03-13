@@ -1,20 +1,28 @@
-# Use an official Node.js runtime as a parent image
-FROM node
+FROM node:alpine
 
-# Set the working directory to /app
+# Set working directory
 WORKDIR /app
 
-# Copy the application code to the working directory
-COPY . /app
+# Copy package.json and package-lock.json before other files
+# Utilise Docker cache to save re-installing dependencies if unchanged
+COPY ./package*.json ./
 
 # Install dependencies
-# RUN npm install --production
-RUN npm install
+RUN npm install pm2 -g
+RUN npm install --omit=dev
 
-# Build the React app
+# Copy all files
+COPY . .
+
+# Build app
 RUN npm run build
 
-# Make port 3000 available to the world outside this container
+# Expose the listening port
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+# Run container as non-root (unprivileged) user
+# The node user is provided in the Node.js Alpine base image
+USER node
+
+# Run npm start script when container starts
+CMD [ "npm", "start" ]

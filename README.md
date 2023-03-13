@@ -6,7 +6,7 @@ TODOs:
 
 - Get the AWS Api Gateway credentials from somewhere? .env file? /api-gateway-creds endpoint? Look into where the API Gateway secrets should be retrieved from and stored
 
-- Configure Nginx?
+- Configure Nginx? Configure SSL? Configure AWS Cloudfront CDN?
 
 - Configure AWS infrastructure using terraform infrastructure as code, and deploy using AWS credentials stored and retrieved in Jenkins pipelines
 
