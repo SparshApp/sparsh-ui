@@ -3,6 +3,7 @@ version: "3.9"
 services:
   sparsh-ui:
     container_name: sparsh-ui
+    image: sparsh-ui:latest
     build:
       context: ui
     ports:
@@ -21,6 +22,7 @@ services:
 
   infra:
     container_name: ui-infra
+    image: ui-infra:latest
     build:
       context: infra
     networks:
