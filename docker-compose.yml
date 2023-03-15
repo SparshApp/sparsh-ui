@@ -5,8 +5,8 @@ services:
     container_name: sparsh-ui
     build:
       context: ui
-    # ports:
-    #   - 3000:3000
+    ports:
+      - 3000:3000
     # depends_on:
       # - sparsh-api
     command: npx pm2-runtime npm -- start --watch
@@ -18,26 +18,9 @@ services:
       sparsh-network:
         aliases:
           - sparsh-ui
-  
-  nginx:
-    container_name: nginx
-    build: 
-      context: nginx
-    ports:
-      - 80:80
-      # - 443:443
-    volumes:
-      - staticbuild:/app/public
-    depends_on:
-      - sparsh-ui
-      # - sparsh-app
-    networks:
-      sparsh-network:
-        aliases:
-          - nginx
 
   infra:
-    container_name: infra
+    container_name: ui-infra
     build:
       context: infra
     networks:
