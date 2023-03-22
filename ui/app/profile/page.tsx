@@ -1,15 +1,17 @@
-import type { Metadata } from 'next';
+import Header from "components/Header";
+// import type { Metadata } from 'next';
+import Profile from "views/Profile";
 
-export const metadata: Metadata = {
-  title: 'Profile',
-  description: 'Sparsh Srivastava',
-};
+// export const metadata: Metadata = {
+//   title: 'Profile',
+//   description: 'Sparsh Srivastava',
+// };
 
-export default function AboutPage() {
+export default function ProfilePage() {
   return (
-        <div>
-            <h1>Profile</h1>
-            <p>Sparsh Srivastava</p>
-        </div>
-    );
+    <div>
+      <Header />
+      <Profile />
+    </div>
+  );
 }

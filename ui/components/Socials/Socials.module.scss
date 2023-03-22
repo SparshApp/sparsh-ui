@@ -1,0 +1,17 @@
+.socialContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.socialLink {
+    margin: 0 2rem;
+    color: #9b9b9b;
+    transition: all 0.1s ease-in-out;
+    &:hover {
+        color: #000;
+        transform: translateY(-3px);
+    }
+}

@@ -29,13 +29,21 @@
     "skipLibCheck": true,
     "noEmit": true,
     "incremental": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/pages/index.test.tsx.ignore", "src/pages/App.test.tsx.ignore"  ],
+    "**/*.tsx",
+    "src/pages/index.test.tsx.ignore",
+    "src/pages/App.test.tsx.ignore",
+    ".next/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

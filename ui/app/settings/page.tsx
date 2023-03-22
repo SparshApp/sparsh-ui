@@ -1,7 +1,11 @@
+import Header from "components/Header";
+import Settings from "views/Settings";
+
 export default function SettingsPage() {
   return (
-        <div>
-            <h1>Settings</h1>
-        </div>
-    );
+    <div>
+      <Header />
+      <Settings />
+    </div>
+  );
 }

@@ -1,7 +1,11 @@
-export default function ProfilePage() {
+import Header from "components/Header";
+import Login from "../../views/Login/Login";
+
+export default function LoginPage() {
   return (
-        <div>
-            <h1>Login</h1>
-        </div>
-    );
+    <div>
+      <Header />
+      <Login />
+    </div>
+  );
 }

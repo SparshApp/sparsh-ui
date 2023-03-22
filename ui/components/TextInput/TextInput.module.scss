@@ -1,0 +1,31 @@
+.textInputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.textInputLabel {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.textInputField {
+    height: 1rem;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease-in-out;
+
+    &:focus {
+        outline: none;
+        border-color: #1a73e8;
+    }
+}
+
+.textInputError {
+    color: #ff5555;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}

@@ -6,23 +6,26 @@ body {
   overflow: hidden;
 }
 
-#loader {
-  display: block;
-  position: fixed;
-  top: 50%;
+.loader {
+  position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
+  top: 50%;
+  border: 8px solid #f3f3f3;
+  /* Light grey */
+  border-top: 8px solid #333333;
+  /* Blue */
+  border-radius: 50%;
   width: 50px;
   height: 50px;
-  border: 5px solid rgba(0, 0, 0, 0.1);
-  border-left-color: #09f;
-  border-radius: 50%;
-  animation: spin 1s ease infinite;
+  animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
-  to {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
     transform: rotate(360deg);
   }
 }

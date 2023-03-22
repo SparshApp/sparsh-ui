@@ -1,7 +1,8 @@
+import React from "react";
+import "../public/loader.css";
+
 export default function Loading() {
   return (
-    <div>
-        <h1>Loading...</h1>
-    </div>
-  )
+      <div className="loader"></div>
+  );
 }
